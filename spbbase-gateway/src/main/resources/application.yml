@@ -15,10 +15,10 @@ spring:
           uri: http://localhost:8000
           predicates:
             - Path= /**
-        - id: spbbase-authcenter-web
-          uri: lb://spbbase-authcenter-web
+        - id: biz-finance-web
+          uri: lb://biz-finance-web
           predicates:
-            - Path=/spbbase-authcenter-web/**
+            - Path=/biz-finance-web/**
           filters:
             - StripPrefix=1
 

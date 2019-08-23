@@ -20,33 +20,33 @@ repositories {
 dependencies {
 }
 
-subprojects {
-    // 发布jar包到本地Maven仓库
-    apply plugin: 'maven-publish'
-    publishing {
-        publications {
-            maven(MavenPublication) {
-                //若是war包，就写components.web,若是jar包，就写components.java
-                from components.java
-            }
-        }
-
-        repositories {
-            maven {
-                def releasesRepoUrl = "http://nexus3.superbio.cn:8081/repository/maven-releases/"
-                def snapshotsRepoUrl = "http://nexus3.superbio.cn:8081/repository/maven-snapshots/"
-                url project.version.endsWith('-SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-
-                credentials {
-                    username 'user'
-                    password '1q2w3e4r'
-                }
-            }
-        }
-    }
-
-    configurations.all {
-        // check for updates every build
-        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-    }
-}
+//subprojects {
+//    // 鍙戝竷jar鍖呭埌鏈湴Maven浠撳簱
+//    apply plugin: 'maven-publish'
+//    publishing {
+//        publications {
+//            maven(MavenPublication) {
+//                //鑻ユ槸war鍖咃紝灏卞啓components.web,鑻ユ槸jar鍖咃紝灏卞啓components.java
+//                from components.java
+//            }
+//        }
+//
+//        repositories {
+//            maven {
+//                def releasesRepoUrl = "http://nexus3.superbio.cn:8081/repository/maven-releases/"
+//                def snapshotsRepoUrl = "http://nexus3.superbio.cn:8081/repository/maven-snapshots/"
+//                url project.version.endsWith('-SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+//
+//                credentials {
+//                    username 'user'
+//                    password '1q2w3e4r'
+//                }
+//            }
+//        }
+//    }
+//
+//    configurations.all {
+//        // check for updates every build
+//        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+//    }
+//}
